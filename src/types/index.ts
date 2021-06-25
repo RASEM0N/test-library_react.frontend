@@ -11,4 +11,5 @@ export interface Book extends FormDataBook {
 export interface FormDataType {
     title: string
     author: string
+    previewImage?: string
 }

@@ -1,7 +1,20 @@
 import React from 'react'
+import { useForm } from '../hooks'
+import { FormDataType } from '../types'
+import FormPageComponent from '../page-components/FormPageComponent'
 
 const Edit = () => {
-    return <div>Edit</div>
+    const form = useForm<FormDataType>({
+        initialValues: {
+            author: '',
+            title: '',
+            previewImage: '',
+        },
+        onSubmit: (values) => {
+            console.log(values)
+        },
+    })
+    return <FormPageComponent {...form} titlePage="Create" />
 }
 
 export default Edit

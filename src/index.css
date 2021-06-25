@@ -5,6 +5,30 @@ body {
 
 .wrapper {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
     height: 100vh;
+}
+
+.container {
+    width: 600px;
+    border: 1px solid rgba(167, 165, 165, 0.56);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.titlePage {
+    font-family: Calibri, serif;
+    font-size: 32px;
+    font-weight: 600;
+    align-self: center;
+    margin-bottom: 10px;
+}
+
+.right {
+    align-self: center;
 }
