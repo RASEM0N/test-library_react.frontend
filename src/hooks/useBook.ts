@@ -45,12 +45,18 @@ const useBook = () => {
         change(updatedBooks)
     }, [])
 
+    // ---- ----- FIND BOOK BY ID ----- ----
+    const findBookById = (bookId: string): Book | null => {
+        return books.find((b) => b._id === bookId) || null
+    }
+
     return {
         error,
         books,
         createBook,
         updateBook,
         deleteBook,
+        findBookById,
     }
 }
 

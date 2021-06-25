@@ -9,6 +9,7 @@ interface PropsType {
     handleSubmit: (e: React.FormEvent) => void
     error: Record<keyof FormDataType, string>
     titlePage: string
+    buttonText?: string
 }
 
 const FormPageComponent = ({
@@ -17,6 +18,7 @@ const FormPageComponent = ({
     handleSubmit,
     values,
     titlePage,
+    buttonText = 'Create',
 }: PropsType): JSX.Element => {
     return (
         <div className="form">
@@ -36,7 +38,7 @@ const FormPageComponent = ({
                     onChange={handleChange}
                     error={error.title}
                 />
-                <Button text="Create" />
+                <Button text={buttonText} />
             </form>
         </div>
     )

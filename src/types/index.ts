@@ -7,7 +7,7 @@ export interface FormDataBook {
 export interface Book extends FormDataBook {
     _id: string
 }
-
+// исправить повторения
 export interface FormDataType {
     title: string
     author: string
