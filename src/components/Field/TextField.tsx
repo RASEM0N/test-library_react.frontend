@@ -29,6 +29,7 @@ const TextField = ({
                     [styles.isError]: value.length > 5,
                 })}
                 type="text"
+                name={name}
                 placeholder={label}
                 value={value}
                 onChange={onChange}
