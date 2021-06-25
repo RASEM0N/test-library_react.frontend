@@ -1,6 +1,6 @@
 import useLocalStorage from './useLocalStorage'
 import { useCallback, useMemo } from 'react'
-import { Book, FormDataBook } from '../types'
+import { Book, FormDataBook } from '../../types'
 import { booksToString, stringToBooks } from '../utils/dataNormalization'
 import { generationID } from '../utils/generation'
 

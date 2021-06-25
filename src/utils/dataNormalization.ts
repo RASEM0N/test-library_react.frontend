@@ -1,4 +1,4 @@
-import { Book } from '../types'
+import { Book } from '../../types'
 
 export const stringToBooks = (value: string): Book[] => {
     if (typeof value === 'undefined') {
