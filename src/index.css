@@ -12,8 +12,7 @@ body {
 }
 
 .container {
-    width: 600px;
-    border: 1px solid rgba(167, 165, 165, 0.56);
+    width: 400px;
 }
 
 .form {
@@ -22,11 +21,12 @@ body {
 }
 
 .titlePage {
+    line-height: 20px;
     font-family: Calibri, serif;
     font-size: 32px;
     font-weight: 600;
     align-self: center;
-    margin-bottom: 10px;
+    margin-bottom: 45px;
 }
 
 .right {

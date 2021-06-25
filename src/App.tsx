@@ -4,11 +4,12 @@ import Home from './pages/Home'
 import Create from './pages/Create'
 import Edit from './pages/Edit'
 import NotFound from './pages/NotFound'
+import Navbar from './components/Navbar/Navbar'
 
 const App = () => {
     return (
         <div className="wrapper">
-            {/*<Navbar/>*/}
+            <Navbar/>
             <Switch>
                 <Route exact component={Home} path="/" />
                 <Route component={Create} path="/create" />
