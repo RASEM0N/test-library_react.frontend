@@ -8,7 +8,7 @@ interface TextFieldPropsType
     label: string
     value: string
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-    error: string
+    error: string | null
 }
 
 const TextField = ({
@@ -26,7 +26,7 @@ const TextField = ({
             <input
                 formNoValidate={true}
                 className={cn(styles.input, {
-                    [styles.isError]: value.length > 5,
+                    [styles.isError]: error,
                 })}
                 type="text"
                 name={name}
