@@ -1,42 +1,20 @@
-import React, { useState } from 'react'
-import TextField from './components/Field/TextField'
-import { useForm } from './hooks'
-
-interface FormDataType {
-    title: string
-    author: string
-}
+import React from 'react'
+import { Route, Switch } from 'react-router-dom'
+import Home from './pages/Home'
+import Create from './pages/Create'
+import Edit from './pages/Edit'
+import NotFound from './pages/NotFound'
 
 const App = () => {
-    const { error, handleChange, handleSubmit, values } = useForm<FormDataType>({
-        initialValues: {
-            author: '',
-            title: '',
-        },
-        onSubmit: (values) => {
-            alert(JSON.stringify(values))
-        },
-    })
-
     return (
         <div className="wrapper">
-            <form onSubmit={handleSubmit}>
-                <TextField
-                    name="author"
-                    label="Author"
-                    value={values.author}
-                    onChange={handleChange}
-                    error={error.author}
-                />
-                <TextField
-                    name="title"
-                    label="Title"
-                    value={values.title}
-                    onChange={handleChange}
-                    error={error.title}
-                />
-                <button type="submit">submit</button>
-            </form>
+            {/*<Navbar/>*/}
+            <Switch>
+                <Route exact component={Home} path="/" />
+                <Route component={Create} path="/create" />
+                <Route component={Edit} path="/edit/:bookId" />
+                <Route exact component={NotFound} path="*" />
+            </Switch>
         </div>
     )
 }
