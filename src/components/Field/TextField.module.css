@@ -1,0 +1,31 @@
+.textField {
+    width: 250px;
+    height: 72px;
+}
+
+.input {
+    border: none;
+    border-bottom: 1px solid #1d1d1d;
+    margin: 3px 0 1px;
+    padding: 5px 7px;
+    font-size: 15px;
+    outline: none;
+    width: 100%;
+}
+
+.isError {
+    border-color: #f82929;
+}
+
+.title {
+    font-family: 'Arial Black', serif;
+    font-size: 16px;
+}
+
+.error {
+    font-family: 'Calibri', serif;
+    font-style: italic;
+    margin-left: 7px;
+    font-size: 14px;
+    color: #f82929;
+}
