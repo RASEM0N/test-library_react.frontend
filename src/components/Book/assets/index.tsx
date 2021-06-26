@@ -28,6 +28,7 @@ const Logo = ({ className, type, onClick }: LogoType) => {
 
     return (
         <svg
+            tabIndex={4}
             onClick={() => onClick && onClick()}
             className={className}
             height="24px"

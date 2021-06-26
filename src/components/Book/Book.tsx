@@ -25,11 +25,15 @@ const Book = ({ _id, previewImage, title, author, deleteBook }: BookComponentTyp
             <div className={styles.content}>
                 <div className={styles.text}>
                     <span>Title</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <Link to={`/?search_title=${title}`}>{title}</Link>
+                    <Link tabIndex={4} to={`/?search_title=${title}`}>
+                        {title}
+                    </Link>
                 </div>
                 <div className={styles.text}>
                     <span>Author</span> &nbsp;&nbsp;
-                    <Link to={`/?search_author=${author}`}>{author}</Link>
+                    <Link tabIndex={4} to={`/?search_author=${author}`}>
+                        {author}
+                    </Link>
                 </div>
             </div>
             <Link to={`/edit/${_id}`}>
