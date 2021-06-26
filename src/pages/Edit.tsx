@@ -4,6 +4,7 @@ import { Book, FormDataType } from '../types'
 import FormPageComponent from '../page-components/FormPageComponent'
 import { useHistory, useParams } from 'react-router-dom'
 import NotFound from './NotFound'
+import encodeFileBase64 from '../utils/encodeFIleBase64'
 
 const EditContainer = () => {
     const { updateBook, findBookById } = useBook()
@@ -22,6 +23,7 @@ interface EditPropsType {
 
 const Edit = ({ book, editMethod }: EditPropsType): JSX.Element => {
     const history = useHistory()
+    const [file, setFile] = useState<string | undefined>()
     const form = useForm<FormDataType>({
         initialValues: {
             author: book.author,
@@ -29,12 +31,23 @@ const Edit = ({ book, editMethod }: EditPropsType): JSX.Element => {
             previewImage: book.previewImage,
         },
         onSubmit: async (values) => {
+            values.previewImage = file || values.previewImage
             await editMethod(values, book._id)
             history.push('/')
         },
     })
 
-    return <FormPageComponent {...form} titlePage="Edit" buttonText="Edit" />
+    // зарефакторить
+    const uploadFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const files = e.target.files
+        if (files) {
+            encodeFileBase64(files[0], setFile)
+        }
+    }
+
+    return (
+        <FormPageComponent {...form} titlePage="Edit" buttonText="Edit" uploadFile={uploadFile} />
+    )
 }
 
 export default EditContainer

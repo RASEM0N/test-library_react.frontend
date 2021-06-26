@@ -10,6 +10,7 @@ interface PropsType {
     error: Record<keyof FormDataType, string>
     titlePage: string
     buttonText?: string
+    uploadFile: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const FormPageComponent = ({
@@ -19,18 +20,12 @@ const FormPageComponent = ({
     values,
     titlePage,
     buttonText = 'Create',
+    uploadFile,
 }: PropsType): JSX.Element => {
     return (
         <div className="form">
             <div className="titlePage">{titlePage}</div>
             <form onSubmit={handleSubmit}>
-                <TextField
-                    name="author"
-                    label="Author"
-                    value={values.author}
-                    onChange={handleChange}
-                    error={error.author}
-                />
                 <TextField
                     name="title"
                     label="Title"
@@ -38,6 +33,16 @@ const FormPageComponent = ({
                     onChange={handleChange}
                     error={error.title}
                 />
+                <TextField
+                    name="author"
+                    label="Author"
+                    value={values.author}
+                    onChange={handleChange}
+                    error={error.author}
+                />
+                <div>
+                    <input type="file" name="image-file" onChange={uploadFile} />
+                </div>
                 <Button text={buttonText} />
             </form>
         </div>
