@@ -1,0 +1,31 @@
+.buttonWrapper {
+    border: 2px solid rgba(82, 81, 81, 0.68);
+    margin: 20px auto 0;
+    width: 150px;
+    transition: background-color 0.4s ease;
+}
+
+.buttonWrapper:hover {
+    background-color: rgba(31, 31, 31, 0.75);
+}
+
+.buttonWrapper:active {
+    background-color: rgba(80, 80, 80, 0.9);
+}
+
+.button {
+    outline: none;
+    border: none;
+    background-color: inherit;
+    width: 100%;
+    padding: 5px 10px;
+    font-family: 'Calibri', serif;
+    font-size: 22px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.4s ease;
+}
+
+.button:hover {
+    color: #ffffff;
+}

@@ -1,13 +1,35 @@
 body {
     margin: 0;
     font-family: 'fantasy';
+    overflow-y: scroll;
 }
 
 .wrapper {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 
-    width: 40vw;
-    height: 70vh;
+    height: 100vh;
+}
+
+.container {
+    width: 440px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.titlePage {
+    line-height: 20px;
+    font-family: Calibri, serif;
+    font-size: 32px;
+    font-weight: 600;
+    align-self: center;
+    margin-bottom: 45px;
+}
+
+.right {
+    align-self: center;
 }

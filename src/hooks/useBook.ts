@@ -1,6 +1,6 @@
 import useLocalStorage from './useLocalStorage'
 import { useCallback, useMemo } from 'react'
-import { Book, FormDataBook } from '../../types'
+import { Book, FormDataBook } from '../types'
 import { booksToString, stringToBooks } from '../utils/dataNormalization'
 import { generationID } from '../utils/generation'
 
@@ -17,33 +17,47 @@ const useBook = () => {
     }
 
     // ---- ----- CREATE ----- ----
-    const createBook = useCallback((formData: FormDataBook): void => {
-        const createBook: Book = {
-            ...formData,
-            _id: generationID(),
-        }
-        change([...books, createBook])
-    }, [])
+    const createBook = useCallback(
+        (formData: FormDataBook): void => {
+            const createBook: Book = {
+                ...formData,
+                _id: generationID(),
+            }
+            change([...books, createBook])
+        },
+        [item],
+    )
 
     // ---- ----- UPDATE ----- ----
-    const updateBook = useCallback((formData: FormDataBook, bookId: string): void => {
-        const updatedBooks = books.map((b) => {
-            if (b._id === bookId) {
-                return {
-                    ...b,
-                    ...formData,
+    const updateBook = useCallback(
+        (formData: FormDataBook, bookId: string): void => {
+            const updatedBooks = books.map((b) => {
+                if (b._id === bookId) {
+                    return {
+                        ...b,
+                        ...formData,
+                    }
                 }
-            }
-            return b
-        })
-        change(updatedBooks)
-    }, [])
+                return b
+            })
+            change(updatedBooks)
+        },
+        [item],
+    )
 
     // ---- ----- DELETE ----- ----
-    const deleteBook = useCallback((bookId: string): void => {
-        const updatedBooks = books.filter((b) => b._id !== bookId)
-        change(updatedBooks)
-    }, [])
+    const deleteBook = useCallback(
+        (bookId: string): void => {
+            const updatedBooks = books.filter((b) => b._id !== bookId)
+            change(updatedBooks)
+        },
+        [item],
+    )
+
+    // ---- ----- FIND BOOK BY ID ----- ----
+    const findBookById = (bookId: string): Book | null => {
+        return books.find((b) => b._id === bookId) || null
+    }
 
     return {
         error,
@@ -51,6 +65,7 @@ const useBook = () => {
         createBook,
         updateBook,
         deleteBook,
+        findBookById,
     }
 }
 

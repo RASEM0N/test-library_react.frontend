@@ -60,8 +60,7 @@ const useForm = <T extends object>({
         Object.keys(values).forEach((key) => {
             //@ts-ignore
             const value: string = values[key] as string
-
-            if (value.length < minLength) {
+            if (value !== undefined && value.length < minLength) {
                 isError = true
                 const error = `Длина поля ${key} меньше ${minLength} символов`
                 setError((prev) => {
@@ -69,7 +68,6 @@ const useForm = <T extends object>({
                 })
             }
         })
-
         if (isError) {
             return
         }
